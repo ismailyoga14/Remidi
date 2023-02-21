@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity(), MenuAdapter.OnMenuClickListener {
         setContentView(binding.root)
         setUpDataMenu()
         setUpAdapterMenu()
+
+        listMenuData = (activity as NewsActivity).viewModel
     }
 
     private fun setUpAdapterMenu() {
@@ -31,7 +33,6 @@ class MainActivity : AppCompatActivity(), MenuAdapter.OnMenuClickListener {
     private fun setUpDataMenu() {
         binding.apply {
             val adapterMenu = MenuAdapter(this@MainActivity)
-            /*#15 set data dummy ke dalam adapter */
             adapterMenu.setData(listMenuData)
             val linearLayout =
                 LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
